@@ -1,0 +1,653 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Epithelial Tissue Mini-Encyclopedia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: masthead and overview, then a sticky index beside one entry at a time (stacked on phones), then a compare table and common mix-ups.
+   Look: a histology slide. Hematoxylin purple and eosin pink on cool lilac neutrals. */
+:root {
+  --bg: #F5F3F8;
+  --surface: #FFFFFF;
+  --surface-2: #ECE8F2;
+  --fg: #241C30;
+  --fg-muted: #5E5470;
+  --line: #D8D1E3;
+  --accent: #5A3790;
+  --accent-fg: #FFFFFF;
+  --accent-tint: #E9E1F5;
+  --cell: #F3C6D5;
+  --cell-edge: #C9708F;
+  --nuc: #5A3790;
+  --matrix: #E6DCF0;
+  --font-display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16111E;
+    --surface: #201929;
+    --surface-2: #2A2137;
+    --fg: #F1ECF7;
+    --fg-muted: #B5AAC4;
+    --line: #3B3149;
+    --accent: #B99CEC;
+    --accent-fg: #1B1229;
+    --accent-tint: #32264A;
+    --cell: #7C3F58;
+    --cell-edge: #E48FAC;
+    --nuc: #D3BDF4;
+    --matrix: #2D2340;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #16111E;
+  --surface: #201929;
+  --surface-2: #2A2137;
+  --fg: #F1ECF7;
+  --fg-muted: #B5AAC4;
+  --line: #3B3149;
+  --accent: #B99CEC;
+  --accent-fg: #1B1229;
+  --accent-tint: #32264A;
+  --cell: #7C3F58;
+  --cell-edge: #E48FAC;
+  --nuc: #D3BDF4;
+  --matrix: #2D2340;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font: 400 1rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+.eyebrow { font: 500 0.75rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+
+/* Masthead */
+.masthead { padding-top: 40px; }
+.masthead h1 { font-size: clamp(2.7rem, 9vw, 4.6rem); margin: 10px 0 14px; letter-spacing: -0.01em; }
+.lede { max-width: 60ch; font-size: 1.125rem; color: var(--fg-muted); }
+.band { display: block; width: 100%; height: 24px; margin-top: 32px; }
+.cell { fill: var(--cell); stroke: var(--cell-edge); stroke-width: 1.5; }
+.nuc { fill: var(--nuc); }
+
+/* Sections */
+.section { padding-block: 44px; }
+.section-head { display: grid; gap: 8px; margin-bottom: 24px; }
+.section-head h2 { font-size: clamp(1.9rem, 5vw, 2.5rem); }
+.section-head p { color: var(--fg-muted); max-width: 62ch; }
+
+/* Overview */
+.ov { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px 56px; }
+.ov-text { display: grid; gap: 28px; align-content: start; }
+.ov-text h3 { font-size: 1.6rem; margin-bottom: 6px; }
+.ov-text p { color: var(--fg-muted); }
+.roles-title { margin-bottom: 8px; }
+.roles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.roles li { border-bottom: 1px solid var(--line); }
+.role { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 2px 14px; width: 100%; padding: 12px 6px; align-items: baseline; border-radius: 4px; }
+.role:hover { background: var(--surface-2); }
+.role b { font: 500 0.78rem/1.4 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.role span { min-width: 0; }
+.role small { grid-column: 2; color: var(--fg-muted); font-size: 0.875rem; }
+
+.finder { margin-top: 36px; }
+.finder h3 { font-size: 1.5rem; margin-bottom: 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 0.9rem; }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Encyclopedia */
+.encyc { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 32px; align-items: start; }
+.index { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); display: flex; flex-direction: column; gap: 4px; }
+.idx { display: block; width: 100%; padding: 10px 12px; border-radius: 6px; font-weight: 600; line-height: 1.3; }
+.idx span { display: block; margin-top: 3px; font: 500 0.7rem/1.3 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-muted); }
+.idx:hover { background: var(--surface-2); }
+.idx[aria-current="true"] { background: var(--accent); color: var(--accent-fg); }
+.idx[aria-current="true"] span { color: var(--accent-fg); opacity: 0.85; }
+
+.entry { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: grid; gap: 26px; min-width: 0; }
+.entry-head { display: grid; gap: 8px; }
+.entry-head h2 { font-size: clamp(2rem, 5.5vw, 2.8rem); }
+.tagline { font-size: 1.1rem; color: var(--fg-muted); max-width: 56ch; }
+
+.fig { margin: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+.fig svg { display: block; width: 100%; height: auto; }
+.fig figcaption { margin-top: 8px; font: 400 0.72rem/1.4 var(--font-mono); letter-spacing: 0.04em; color: var(--fg-muted); }
+.lbl { fill: var(--fg-muted); font: 500 11px var(--font-mono); }
+.matrix { fill: var(--matrix); }
+.bm { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
+.cilia { stroke: var(--accent); stroke-width: 2; fill: none; stroke-linecap: round; }
+.villus { stroke: var(--accent); stroke-width: 1.7; stroke-linecap: round; }
+.arrow { stroke: var(--accent); stroke-width: 1.8; stroke-dasharray: 4 3; fill: none; }
+.arrowhead { fill: var(--accent); }
+.mucus { fill: var(--accent); opacity: 0.2; }
+.lumen { fill: var(--bg); }
+.drop { fill: var(--accent); }
+.mucus-txt { fill: var(--fg); font: 500 10px var(--font-mono); }
+
+.facts { display: grid; margin: 0; }
+.facts div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: 4px 20px; padding: 13px 0; border-top: 1px solid var(--line); }
+.facts dt { font: 500 0.75rem/1.6 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); padding-top: 2px; }
+.facts dd { margin: 0; }
+
+.think { background: var(--surface-2); border-radius: 8px; padding: 16px 18px; display: grid; gap: 6px; }
+.think .q { font-family: var(--font-display); font-style: italic; font-size: 1.45rem; line-height: 1.3; }
+
+.note { border-radius: 8px; padding: 14px 16px; display: grid; gap: 4px; border: 1px solid var(--line); background: var(--surface-2); }
+.note.fix { background: var(--accent-tint); border-color: var(--accent); }
+.note .tag { font: 500 0.72rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+
+.check summary { cursor: pointer; font-weight: 600; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; }
+.check summary:hover { border-color: var(--accent); }
+.check[open] summary { border-color: var(--accent); }
+.check p { padding: 12px 14px 0; color: var(--fg-muted); }
+
+.pager { display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between; }
+.pg { flex: 1 1 200px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-weight: 600; }
+.pg:hover { border-color: var(--accent); }
+.pg small { display: block; font: 500 0.7rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+.pg.next { text-align: right; }
+.pg.empty { visibility: hidden; }
+
+/* Compare table */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 700px; }
+th, td { padding: 12px 14px; text-align: left; vertical-align: top; font-size: 0.95rem; }
+th { font: 500 0.72rem/1.4 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); border-bottom: 1px solid var(--line); }
+td { border-top: 1px solid var(--line); }
+tbody tr:first-child td { border-top: 0; }
+td .rowlink { font-weight: 600; color: var(--accent); }
+td .rowlink:hover { text-decoration: underline; }
+
+/* Mix-ups */
+.mix { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+.mix > div { border-top: 1px solid var(--line); padding-top: 14px; display: grid; gap: 6px; align-content: start; }
+.mix h3 { font-size: 1.5rem; }
+.mix p { color: var(--fg-muted); }
+
+.foot { padding-block: 8px 48px; color: var(--fg-muted); font-size: 0.875rem; }
+
+@media (max-width: 800px) {
+  .ov { grid-template-columns: minmax(0, 1fr); }
+  .encyc { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .index { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 8px; }
+  .idx { width: auto; flex: 0 0 auto; white-space: nowrap; }
+}
+@media (max-width: 520px) {
+  .entry { padding: 16px; }
+  .facts div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .role { grid-template-columns: minmax(0, 1fr); }
+  .role small { grid-column: 1; }
+}
+</style>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Biology · Tissues · Class mini-encyclopedia</p>
+    <h1>Epithelial Tissue</h1>
+    <p class="lede">Closely packed cells that cover the body and line its organs. Open an entry to see how each type is built and what it does.</p>
+  </div>
+  <svg class="band" aria-hidden="true" width="100%" height="24">
+    <defs>
+      <pattern id="cells" width="28" height="24" patternUnits="userSpaceOnUse">
+        <rect class="cell" x="2" y="3" width="24" height="18" rx="4"/>
+        <circle class="nuc" cx="14" cy="12" r="3.5"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="24" fill="url(#cells)"/>
+  </svg>
+</header>
+
+<main>
+  <section class="section" aria-labelledby="ov-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Overview</p>
+        <h2 id="ov-h">What is epithelial tissue?</h2>
+      </div>
+      <div class="ov">
+        <div class="ov-text">
+          <div>
+            <h3>Where is it?</h3>
+            <p>It forms the outer covering of the body (the skin) and lines internal organs such as the mouth, lungs, blood vessels and intestine.</p>
+          </div>
+          <div>
+            <h3>What is it like?</h3>
+            <p>Its cells are packed closely together with very little space between them. This stops germs from getting in and reduces water loss.</p>
+          </div>
+        </div>
+        <div>
+          <h3 class="roles-title">Five key roles</h3>
+          <ul class="roles" id="roles"></ul>
+        </div>
+      </div>
+      <div class="finder">
+        <h3>Find an entry by body part</h3>
+        <div class="chips" id="chips"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="entries" aria-labelledby="en-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">The entries</p>
+        <h2 id="en-h">Seven types of epithelial tissue</h2>
+      </div>
+      <div class="encyc">
+        <nav class="index" id="index" aria-label="Epithelial tissue entries"></nav>
+        <div id="host" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="cmp-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Side by side</p>
+        <h2 id="cmp-h">Compare the types</h2>
+        <p>Select a type name to open its entry.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Layers</th><th>Cell shape</th><th>Main job</th><th>Found in</th></tr>
+          </thead>
+          <tbody id="cmp"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="mx-h">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Revision</p>
+        <h2 id="mx-h">Common mix-ups</h2>
+      </div>
+      <div class="mix">
+        <div>
+          <h3>Layers or shape?</h3>
+          <p>Simple means one layer and stratified means many layers. Squamous, cuboidal and columnar describe the cell shape: flat, cube-like and pillar-like.</p>
+        </div>
+        <div>
+          <h3>Cilia or microvilli?</h3>
+          <p>Cilia are longer hair-like projections that move and push mucus along. Microvilli are tiny folds that stay still and add surface area for absorption.</p>
+        </div>
+        <div>
+          <h3>Intestine or airway?</h3>
+          <p>The intestine lining is non-ciliated columnar epithelium with microvilli. The ciliated type lines parts of the respiratory tract.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Built from the class biology notes and textbook Fig. 3.11. The diagrams are simplified and not drawn to scale.</p>
+</footer>
+
+<script>
+(function () {
+  var entries = [
+    {
+      id: 'simple-squamous', name: 'Simple squamous epithelium', short: 'Simple squamous', role: 'Exchange', fig: 'Fig. 3.11a',
+      tagline: 'A single layer of flat cells and the thinnest tissue in the body.',
+      structure: 'One layer of extremely thin, flat cells. Each cell has a flat nucleus and rests on a basement membrane.',
+      location: 'Lining of blood vessels (capillaries) and the air sacs (alveoli) of the lungs.',
+      fn: 'Lets gases and liquids diffuse across the lining quickly.',
+      why: 'The cells are so thin that oxygen and carbon dioxide have only a tiny distance to travel.',
+      think: 'Think of a paper-thin doorway. The thinner the door, the faster people get through it.',
+      q: 'Why is exchange of gases fast across this tissue?',
+      a: 'It is only one cell thick and the cells are flat, so the diffusion distance is very short.',
+      alt: 'Diagram of one layer of thin, flat cells with flat nuclei on a basement membrane, with arrows showing gases crossing both ways.',
+      cmp: ['One', 'Thin and flat', 'Exchange', 'Blood vessels, air sacs of lungs']
+    },
+    {
+      id: 'stratified-squamous', name: 'Stratified squamous epithelium', short: 'Stratified squamous', role: 'Protection', fig: 'Fig. 3.11b',
+      tagline: 'Many layers of cells that take the wear and tear.',
+      structure: 'Many layers of cells. The outer cells are flat and tightly packed, and the deeper cells are rounder. Stratified means arranged in layers.',
+      location: 'Skin, the lining of the mouth and the oesophagus.',
+      fn: 'Protects against injury, friction and microbes.',
+      why: 'When the outer cells wear off, the layers below replace them, so the surface stays covered.',
+      think: 'Think of a thick carpet. Foot traffic wears away the top, but there is still more carpet underneath.',
+      q: 'Why is the skin made of many layers of cells?',
+      a: 'To prevent wear and tear. Worn outer cells are replaced by the layers below.',
+      alt: 'Diagram of five stacked layers of cells, rounder at the bottom and flatter at the top, on a basement membrane.',
+      cmp: ['Many', 'Flat on the outside', 'Protection', 'Skin, mouth, oesophagus']
+    },
+    {
+      id: 'simple-cuboidal', name: 'Simple cuboidal epithelium', short: 'Simple cuboidal', role: 'Support', fig: '',
+      tagline: 'A single layer of cube-shaped cells.',
+      structure: 'One layer of cube-shaped cells, each with a round nucleus near the centre. A basement membrane is present.',
+      location: 'Lining of kidney tubules and the ducts of salivary glands.',
+      fn: 'Provides mechanical support, as your textbook states. In glands, cuboidal cells also work as secretory cells.',
+      why: 'The cube shape gives a sturdy wall around a tubule or duct and keeps the passage open.',
+      think: 'Think of bricks laid in a single row to form the wall of a small tunnel.',
+      q: 'Name two places where cuboidal epithelium is found.',
+      a: 'The kidney tubules and the ducts of the salivary glands.',
+      alt: 'Diagram of a single row of square cells with round nuclei in the centre, above a basement membrane.',
+      cmp: ['One', 'Cube', 'Support (secretion in glands)', 'Kidney tubules, salivary gland ducts']
+    },
+    {
+      id: 'simple-columnar', name: 'Simple columnar epithelium', short: 'Simple columnar', role: 'Absorption', fig: 'Fig. 3.11e',
+      tagline: 'A single layer of tall, pillar-like cells.',
+      structure: 'One layer of tall, pillar-like cells with the nucleus near the base. The free surface may carry microvilli, which look hair-like.',
+      location: 'Inner lining of the small intestine and the stomach.',
+      fn: 'Absorbs digested food and water in the intestine. In the stomach and intestine it also secretes mucus and enzymes.',
+      why: 'Tall cells have room to absorb and make substances, and microvilli add surface area for absorption.',
+      think: 'Think of a towel. Its tiny loops give it far more surface than a flat sheet, so it soaks up more water.',
+      q: 'Is the lining of the intestine ciliated?',
+      a: 'No. It is non-ciliated columnar epithelium with microvilli. The ciliated type lines parts of the respiratory tract.',
+      alt: 'Diagram of a row of tall pillar-shaped cells with nuclei near the base and tiny microvilli on top.',
+      note: { kind: 'fix', text: 'Your notes place the intestine under ciliated columnar epithelium. The intestine lining is non-ciliated. Its hair-like surface is made of microvilli, which are small folds that do not move.' },
+      cmp: ['One', 'Tall, pillar-like', 'Absorption and secretion', 'Stomach, small intestine']
+    },
+    {
+      id: 'ciliated-columnar', name: 'Ciliated columnar epithelium', short: 'Ciliated columnar', role: 'Moving mucus', fig: '',
+      tagline: 'Columnar cells topped with moving, hair-like cilia.',
+      structure: 'Tall columnar cells with cilia on the free surface. Cilia are hair-like projections that can move.',
+      location: 'The respiratory tract. It also lines parts of the genitourinary tract.',
+      fn: 'The cilia beat together and push mucus forward, which clears it from the airway.',
+      why: 'Mucus traps dust and germs. Moving the mucus along keeps them out of the lungs.',
+      think: 'Think of a crew of rowers. All the cilia sweep in the same direction and carry the mucus along.',
+      q: 'What do the cilia in the respiratory tract do?',
+      a: 'Their movement pushes mucus forward to clear it.',
+      alt: 'Diagram of tall cells with curved cilia on top that sweep a layer of mucus in one direction.',
+      note: { kind: 'tip', text: 'Cilia move and microvilli do not. If a hair-like surface is in the intestine, it is microvilli.' },
+      cmp: ['One', 'Tall, with cilia', 'Moving mucus', 'Respiratory tract']
+    },
+    {
+      id: 'glandular', name: 'Glandular epithelium', short: 'Glandular', role: 'Secretion', fig: 'Fig. 3.11c',
+      tagline: 'Epithelium that folds inward to form a gland.',
+      structure: 'Some cuboidal or columnar cells become gland cells. When part of the epithelium folds inward, a multicellular gland forms.',
+      location: 'Salivary glands, sweat glands and the stomach lining.',
+      fn: 'Secretes mucus, enzymes, hormones, sweat and saliva at the epithelial surface.',
+      why: 'Folding inward packs many secretory cells into a small space, and a duct carries the product to the surface.',
+      think: 'Think of a small workshop in a basement, with a pipe that carries its products up to the street.',
+      q: 'How is glandular epithelium formed?',
+      a: 'A part of the epithelial tissue folds inward and a multicellular gland is formed.',
+      alt: 'Diagram of surface cells folding inward into a duct that ends in a ring of secretory cells, with droplets in the centre.',
+      cmp: ['Folded inward into a gland', 'Cuboidal or columnar', 'Secretion', 'Salivary and sweat glands, stomach lining']
+    },
+    {
+      id: 'sensory', name: 'Sensory epithelium', short: 'Sensory', role: 'Sensing', fig: 'Fig. 3.11d',
+      tagline: 'Receptor cells that pick up smell, taste, sound and balance.',
+      structure: 'Receptor cells with hair-like projections on the surface. These cells pass signals on to nerves.',
+      location: 'Nostrils, taste buds and the inner ear.',
+      fn: 'Detects smell, taste, sound and balance.',
+      why: 'The hair-like tips are the part that detects the stimulus, and the cell then signals the nerve.',
+      think: 'Think of the antenna on a radio. The tip picks up the signal and passes it on.',
+      q: 'Which senses involve sensory epithelium?',
+      a: 'Smell (nostrils), taste (taste buds), and hearing and balance (inner ear).',
+      alt: 'Diagram of a row of narrow receptor cells, each with three hair-like tips on top.',
+      note: { kind: 'tip', text: 'This type is named for its job and not for its cell shape. Many books list only the shape-based types, so check which list your teacher uses.' },
+      cmp: ['One', 'Receptor cells with hair-like tips', 'Sensing', 'Nostrils, taste buds, inner ear']
+    }
+  ];
+
+  var parts = [
+    ['Blood vessels', 'simple-squamous'], ['Lung air sacs', 'simple-squamous'], ['Skin', 'stratified-squamous'],
+    ['Mouth', 'stratified-squamous'], ['Oesophagus', 'stratified-squamous'], ['Kidney tubules', 'simple-cuboidal'],
+    ['Stomach lining', 'simple-columnar'], ['Small intestine', 'simple-columnar'], ['Windpipe and airways', 'ciliated-columnar'],
+    ['Salivary glands', 'glandular'], ['Sweat glands', 'glandular'], ['Nostrils', 'sensory'],
+    ['Taste buds', 'sensory'], ['Inner ear', 'sensory']
+  ];
+
+  var roles = [
+    ['Exchange', 'of gases and liquids', 'simple-squamous'],
+    ['Protection', 'from injury and microbes', 'stratified-squamous'],
+    ['Secretion', 'of mucus, enzymes and sweat', 'glandular'],
+    ['Sensing', 'smell, taste, sound, balance', 'sensory'],
+    ['Absorption', 'of nutrients and water', 'simple-columnar']
+  ];
+
+  var byId = {};
+  entries.forEach(function (e, i) { e.i = i; byId[e.id] = e; });
+
+  /* ---------- Diagrams ---------- */
+  function lbl(x, y, t, anchor) {
+    return '<text class="lbl" x="' + x + '" y="' + y + '" text-anchor="' + (anchor || 'start') + '">' + t + '</text>';
+  }
+  function head(x, y, dir) {
+    return '<polygon class="arrowhead" points="' + (x - 4) + ',' + (y - 7 * dir) + ' ' + (x + 4) + ',' + (y - 7 * dir) + ' ' + x + ',' + y + '"/>';
+  }
+  function frame(inner, custom) {
+    var base = custom ? '' :
+      '<rect class="matrix" x="0" y="162" width="360" height="38"/>' +
+      '<line class="bm" x1="8" y1="161" x2="352" y2="161"/>' +
+      lbl(14, 186, 'underlying tissue') + lbl(346, 176, 'basement membrane', 'end');
+    return base + inner + lbl(14, 16, 'free surface');
+  }
+  function svg(inner, alt, custom) {
+    return '<svg viewBox="0 0 360 200" role="img" aria-label="' + alt + '">' + frame(inner, custom) + '</svg>';
+  }
+
+  var draw = {};
+
+  draw['simple-squamous'] = function () {
+    var s = '', i, x;
+    for (i = 0; i < 4; i++) {
+      x = 20 + i * 80;
+      s += '<rect class="cell" x="' + x + '" y="146" width="78" height="14" rx="7"/>' +
+           '<ellipse class="nuc" cx="' + (x + 39) + '" cy="153" rx="13" ry="3.5"/>';
+    }
+    s += '<line class="arrow" x1="165" y1="80" x2="165" y2="184"/>' + head(165, 191, 1);
+    s += '<line class="arrow" x1="192" y1="184" x2="192" y2="87"/>' + head(192, 80, -1);
+    s += lbl(178, 68, 'gases pass both ways', 'middle');
+    s += lbl(346, 134, 'one cell thick', 'end');
+    return s;
+  };
+
+  draw['stratified-squamous'] = function () {
+    var layers = [{ n: 8, h: 30 }, { n: 6, h: 24 }, { n: 5, h: 20 }, { n: 4, h: 14 }, { n: 3, h: 10 }];
+    var s = '', y = 160;
+    layers.forEach(function (L) {
+      var y0 = y - L.h, cw = 320 / L.n, j, x, rx, ry;
+      rx = L.h >= 20 ? 7 : 11;
+      ry = L.h >= 20 ? L.h / 2 - 6 : L.h / 2 - 3;
+      for (j = 0; j < L.n; j++) {
+        x = 20 + j * cw;
+        s += '<rect class="cell" x="' + (x + 0.75) + '" y="' + (y0 + 0.75) + '" width="' + (cw - 1.5) + '" height="' + (L.h - 1.5) + '" rx="' + Math.min(L.h / 2, 5) + '"/>' +
+             '<ellipse class="nuc" cx="' + (x + cw / 2) + '" cy="' + (y0 + L.h / 2) + '" rx="' + rx + '" ry="' + ry + '"/>';
+      }
+      y = y0;
+    });
+    s += lbl(346, 36, 'outer cells: flat, worn away first', 'end');
+    s += lbl(346, 50, 'deeper cells replace them', 'end');
+    return s;
+  };
+
+  draw['simple-cuboidal'] = function () {
+    var s = '', i, x, cw = 320 / 6;
+    for (i = 0; i < 6; i++) {
+      x = 20 + i * cw;
+      s += '<rect class="cell" x="' + (x + 1) + '" y="110" width="' + (cw - 2) + '" height="50" rx="3"/>' +
+           '<circle class="nuc" cx="' + (x + cw / 2) + '" cy="135" r="9"/>';
+    }
+    s += lbl(180, 72, 'lumen (space inside the tubule)', 'middle');
+    s += lbl(180, 92, 'cells are about as wide as they are tall', 'middle');
+    return s;
+  };
+
+  draw['simple-columnar'] = function () {
+    var s = '', i, k, x, mx;
+    for (i = 0; i < 8; i++) {
+      x = 20 + i * 40;
+      s += '<rect class="cell" x="' + x + '" y="76" width="38" height="84" rx="4"/>' +
+           '<ellipse class="nuc" cx="' + (x + 19) + '" cy="140" rx="8" ry="12"/>';
+      for (k = 0; k < 5; k++) {
+        mx = x + 5 + k * 7;
+        s += '<line class="villus" x1="' + mx + '" y1="66" x2="' + mx + '" y2="76"/>';
+      }
+    }
+    s += lbl(346, 52, 'microvilli: more surface for absorption', 'end');
+    return s;
+  };
+
+  draw['ciliated-columnar'] = function () {
+    var s = '', i, k, x, cx;
+    s += '<rect class="mucus" x="20" y="54" width="320" height="14" rx="7"/>';
+    s += '<text class="mucus-txt" x="30" y="65">mucus</text>';
+    s += '<line class="arrow" x1="110" y1="61" x2="296" y2="61"/>' + '<polygon class="arrowhead" points="294,56 294,66 304,61"/>';
+    for (i = 0; i < 8; i++) {
+      x = 20 + i * 40;
+      s += '<rect class="cell" x="' + x + '" y="92" width="38" height="68" rx="4"/>' +
+           '<ellipse class="nuc" cx="' + (x + 19) + '" cy="142" rx="8" ry="11"/>';
+      for (k = 0; k < 4; k++) {
+        cx = x + 7 + k * 8;
+        s += '<path class="cilia" d="M' + cx + ' 92 Q' + (cx + 1) + ' 80 ' + (cx + 6) + ' 71"/>';
+      }
+    }
+    s += lbl(346, 40, 'cilia beat and push mucus forward', 'end');
+    return s;
+  };
+
+  draw['glandular'] = function () {
+    var s = '', i, j, x, y, a, cx = 180, cy = 152, r = 34, circ = 2 * Math.PI * r, period = circ / 12;
+    s += '<rect class="matrix" x="0" y="62" width="360" height="138"/>';
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="var(--cell-edge)" stroke-width="20"/>';
+    s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="var(--cell)" stroke-width="17" stroke-dasharray="' + (period - 2).toFixed(2) + ' 2"/>';
+    for (i = 0; i < 12; i++) {
+      a = ((i * period + (period - 2) / 2) / circ) * 2 * Math.PI;
+      s += '<circle class="nuc" cx="' + (cx + r * Math.cos(a)).toFixed(1) + '" cy="' + (cy + r * Math.sin(a)).toFixed(1) + '" r="3.2"/>';
+    }
+    s += '<rect class="lumen" x="156" y="40" width="48" height="96"/>';
+    s += '<circle class="lumen" cx="' + cx + '" cy="' + cy + '" r="24"/>';
+    for (j = 0; j < 4; j++) {
+      y = 40 + j * 20;
+      s += '<rect class="cell" x="140.75" y="' + (y + 0.75) + '" width="14.5" height="18.5" rx="3"/><circle class="nuc" cx="148" cy="' + (y + 10) + '" r="3"/>';
+      s += '<rect class="cell" x="204.75" y="' + (y + 0.75) + '" width="14.5" height="18.5" rx="3"/><circle class="nuc" cx="212" cy="' + (y + 10) + '" r="3"/>';
+    }
+    for (i = 0; i < 5; i++) {
+      x = 20 + i * 24;
+      s += '<rect class="cell" x="' + (x + 0.75) + '" y="40.75" width="22.5" height="20.5" rx="3"/><circle class="nuc" cx="' + (x + 12) + '" cy="51" r="3.5"/>';
+      x = 220 + i * 24;
+      s += '<rect class="cell" x="' + (x + 0.75) + '" y="40.75" width="22.5" height="20.5" rx="3"/><circle class="nuc" cx="' + (x + 12) + '" cy="51" r="3.5"/>';
+    }
+    s += '<circle class="drop" cx="172" cy="148" r="2.5"/><circle class="drop" cx="190" cy="158" r="2.5"/><circle class="drop" cx="182" cy="136" r="2.5"/>' +
+         '<circle class="drop" cx="178" cy="112" r="2.5"/><circle class="drop" cx="184" cy="88" r="2.5"/><circle class="drop" cx="178" cy="66" r="2.5"/>';
+    s += lbl(346, 30, 'secretion released at the surface', 'end');
+    s += lbl(24, 150, 'secretory cells');
+    s += lbl(232, 92, 'duct');
+    s += lbl(346, 190, 'underlying tissue', 'end');
+    return s;
+  };
+
+  draw['sensory'] = function () {
+    var s = '', i, x, c, d, ds = [-6, 0, 6], hs = [20, 28, 20];
+    for (i = 0; i < 12; i++) {
+      x = 20 + i * 26; c = x + 12;
+      s += '<rect class="cell" x="' + x + '" y="104" width="24" height="56" rx="4"/>' +
+           '<ellipse class="nuc" cx="' + c + '" cy="140" rx="6" ry="9"/>';
+      for (d = 0; d < 3; d++) {
+        s += '<line class="villus" x1="' + (c + ds[d]) + '" y1="104" x2="' + (c + ds[d] * 1.6).toFixed(1) + '" y2="' + (104 - hs[d]) + '"/>';
+      }
+    }
+    s += lbl(346, 56, 'hair-like tips detect the stimulus', 'end');
+    return s;
+  };
+
+  /* ---------- Rendering ---------- */
+  function $(id) { return document.getElementById(id); }
+  var current = entries[0].id;
+
+  function entryHTML(e) {
+    var prev = entries[e.i - 1], next = entries[e.i + 1];
+    var note = '';
+    if (e.note) {
+      note = '<aside class="note ' + e.note.kind + '"><p class="tag">' + (e.note.kind === 'fix' ? 'Corrected from your notes' : 'Watch out') + '</p><p>' + e.note.text + '</p></aside>';
+    }
+    return '<article class="entry" id="entry" tabindex="-1">' +
+      '<div class="entry-head">' +
+        '<p class="eyebrow">Job: ' + e.role + (e.fig ? ' · Textbook ' + e.fig : '') + '</p>' +
+        '<h2>' + e.name + '</h2>' +
+        '<p class="tagline">' + e.tagline + '</p>' +
+      '</div>' +
+      '<figure class="fig">' + svg(draw[e.id](), e.alt, e.id === 'glandular') +
+        '<figcaption>' + e.name + ' (simplified diagram)</figcaption></figure>' +
+      '<dl class="facts">' +
+        '<div><dt>Structure</dt><dd>' + e.structure + '</dd></div>' +
+        '<div><dt>Location</dt><dd>' + e.location + '</dd></div>' +
+        '<div><dt>Function</dt><dd>' + e.fn + '</dd></div>' +
+        '<div><dt>Why it fits</dt><dd>' + e.why + '</dd></div>' +
+      '</dl>' +
+      '<div class="think"><p class="eyebrow">Picture it</p><p class="q">' + e.think + '</p></div>' +
+      note +
+      '<details class="check"><summary>Test yourself: ' + e.q + '</summary><p>' + e.a + '</p></details>' +
+      '<div class="pager">' +
+        (prev ? '<button class="pg" data-id="' + prev.id + '"><small>Previous</small>' + prev.short + '</button>' : '<span class="pg empty"></span>') +
+        (next ? '<button class="pg next" data-id="' + next.id + '"><small>Next</small>' + next.short + '</button>' : '<span class="pg empty"></span>') +
+      '</div>' +
+    '</article>';
+  }
+
+  function reduce() {
+    try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) { return false; }
+  }
+  function scrollTo(el) {
+    try { el.scrollIntoView({ behavior: reduce() ? 'auto' : 'smooth', block: 'start' }); } catch (err) { el.scrollIntoView(); }
+  }
+
+  function select(id, force) {
+    if (!byId[id]) return;
+    current = id;
+    $('host').innerHTML = entryHTML(byId[id]);
+    var btns = $('index').querySelectorAll('.idx');
+    Array.prototype.forEach.call(btns, function (b) {
+      if (b.getAttribute('data-id') === id) { b.setAttribute('aria-current', 'true'); } else { b.removeAttribute('aria-current'); }
+    });
+    try { history.replaceState(null, '', '#' + id); } catch (err) { /* ignored */ }
+    if (force === 'force') {
+      scrollTo($('entries'));
+    } else if (force === 'if-needed') {
+      var top = $('entry').getBoundingClientRect().top;
+      if (top < 0) { scrollTo($('entry')); }
+    }
+  }
+
+  function build() {
+    $('index').innerHTML = entries.map(function (e) {
+      return '<button class="idx" data-id="' + e.id + '">' + e.short + '<span>' + e.role + '</span></button>';
+    }).join('');
+
+    $('roles').innerHTML = roles.map(function (r) {
+      return '<li><button class="role" data-go="' + r[2] + '"><b>' + r[0] + '</b><span>' + r[1] + '</span><small>Open: ' + byId[r[2]].name + '</small></button></li>';
+    }).join('');
+
+    $('chips').innerHTML = parts.map(function (p) {
+      return '<button class="chip" data-go="' + p[1] + '">' + p[0] + '</button>';
+    }).join('');
+
+    $('cmp').innerHTML = entries.map(function (e) {
+      return '<tr><td><button class="rowlink" data-go="' + e.id + '">' + e.short + '</button></td>' +
+        e.cmp.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>';
+    }).join('');
+
+    document.addEventListener('click', function (ev) {
+      var t = ev.target.closest ? ev.target.closest('button') : null;
+      if (!t) return;
+      if (t.hasAttribute('data-go')) { select(t.getAttribute('data-go'), 'force'); }
+      else if (t.hasAttribute('data-id')) { select(t.getAttribute('data-id'), 'if-needed'); }
+    });
+
+    window.addEventListener('hashchange', function () {
+      var h = (location.hash || '').slice(1);
+      if (byId[h] && h !== current) { select(h, 'if-needed'); }
+    });
+  }
+
+  build();
+  var start = (location.hash || '').slice(1);
+  select(byId[start] ? start : entries[0].id);
+})();
+</script>
+
+</body></html>
